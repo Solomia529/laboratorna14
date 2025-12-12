@@ -44,7 +44,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // Має співпадати з Android/iOS native кодом
   static const MethodChannel _channel =
   MethodChannel('com.example.laboratorna14/native');
 
@@ -59,7 +58,6 @@ class _HomePageState extends State<HomePage> {
       await _channel.invokeMethod<String>('getNativeMessage');
       if (res != null && res.trim().isNotEmpty) text = res;
     } on PlatformException {
-      // якщо нативний код не підключений/помилка — залишимо статичний рядок
     }
 
     if (!mounted) return;
